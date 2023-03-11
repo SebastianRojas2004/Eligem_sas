@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CargarPdfController;
+use App\Http\Controllers\ListadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +22,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('empleados', App\Http\Controllers\EmpleadoController::class)->middleware('auth');
+
+Route::resource('cargarPdf', App\Http\Controllers\CargarPdfController::class)->middleware('auth');
+Route::post('EnvioDatos',[CargarPdfController::class,'Insertar']);
+Route::resource('listado',App\Http\Controllers\ListadoController::class)->middleware('auth');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
