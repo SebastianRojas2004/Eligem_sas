@@ -30,12 +30,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     @if(Auth::check())
-                    <ul class="navbar-nav me-auto">
+                    <!--
+                    <ul class="navbar-nav me-auto">                    
                         <a class="nav-link" href="{{ route('empleados.index') }}">{{ __('Empleados') }}</a>
                         <a class="nav-link" href="{{ route('listado.index') }}">{{ __('ArchivoPdf') }}</a>
                     </ul>
-                    @endif
-
+                    @endif        
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
