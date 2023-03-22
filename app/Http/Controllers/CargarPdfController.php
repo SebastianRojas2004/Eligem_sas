@@ -13,6 +13,11 @@ class CargarPdfController extends Controller
         return view('cargarPdf.index');
     }
 
+    public function listado()
+    {
+        return view('cargarPdf.listado');
+    }
+
     public function Insertar(Request $request){
        try{
             DB::beginTransaction();
