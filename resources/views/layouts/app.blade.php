@@ -32,8 +32,7 @@
                     @if(Auth::check())                    
                     <ul class="navbar-nav me-auto">                    
                         <a class="nav-link" href="{{ route('empleados.index') }}">{{ __('Empleados') }}</a>                        
-                        <a class="nav-link" href="{{ route('cargarPdf.index')}}">{{ __('CargarPDF') }}</a>
-                        <a class="nav-link" href="{{ route('cargarPdf.listado')}}">{{ __('Archivos Pdf') }}</a>
+                        <a class="nav-link" href="{{ route('cargarPdf.index')}}">{{ __('CargarPDF') }}</a>                    
                     </ul>
                     @endif        
                     <!-- Right Side Of Navbar -->
