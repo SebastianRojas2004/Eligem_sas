@@ -10,7 +10,8 @@ class CargarPdfController extends Controller
 {
     public function index()
     {
-        return view('cargarPdf.index');
+        $query=DB::table('ArchivoPdf')->get();
+        return view('cargarPdf.index',['datos'=>$query]);
     }
 
     public function listado()

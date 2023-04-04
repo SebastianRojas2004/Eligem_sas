@@ -4,25 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargar Pdf</title>
+    <title>Listado</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
 <body>
     <div class="container">
-        <form action="EnvioDatos" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Nombre</label>
-                <input class="form-control" type="text" name="nombre" class="form-control-file">
-            </div>            
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Cargar archivo PDF</label>
-                <input class="form-control" type="file" name="pdf" class="form-control-file">
+        <table class="table">
+            <div class="float-right">
+                <a href="{{ route('cargarPdf.listado') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                {{ __('Create New') }}
+                </a>
             </div>
-            <button class="btn btn-success" type="submit">Cargar</button>
-        </form>
-    </div>
+            <br>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Documento</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($datos as $d)
+                    <tr>
+                        <td>{{ $d->id_doc }}</td>
+                        <td>{{ $d->nombre }}</td>
+                        <td>{{ $d->documento }}</td>     
+                        <td><a href="Archivos/{{$d->documento}}" target="blank_">Ver Documento</a></td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
 </body>
 </html>
