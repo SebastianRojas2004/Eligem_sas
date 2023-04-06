@@ -37,8 +37,7 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Correo</th>
-										<th>Contraseña</th>
+										<th>Correo</th>										
 										<th>Celular</th>
 
                                         <th></th>
@@ -50,8 +49,7 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $empleado->Nombre }}</td>
-											<td>{{ $empleado->Correo }}</td>
-											<td>{{ $empleado->Contraseña }}</td>
+											<td>{{ $empleado->Correo }}</td>											
 											<td>{{ $empleado->Celular }}</td>
 
                                             <td>

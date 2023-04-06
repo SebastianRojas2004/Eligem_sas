@@ -12,11 +12,6 @@
             {!! $errors->first('Correo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('Contraseña') }}
-            {{ Form::text('Contraseña', $empleado->Contraseña, ['class' => 'form-control' . ($errors->has('Contraseña') ? ' is-invalid' : ''), 'placeholder' => 'Contraseña']) }}
-            {!! $errors->first('Contraseña', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
             {{ Form::label('Celular') }}
             {{ Form::text('Celular', $empleado->Celular, ['class' => 'form-control' . ($errors->has('Celular') ? ' is-invalid' : ''), 'placeholder' => 'Celular']) }}
             {!! $errors->first('Celular', '<div class="invalid-feedback">:message</div>') !!}

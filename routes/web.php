@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CargarPdfController;
 use App\Http\Controllers\ListadoController; 
 use App\Http\Controllers\formularioController;
+use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\Auth\LoginController;
 
 /*
@@ -33,6 +34,10 @@ Route::resource('listado', App\Http\Controllers\CargarPdfController::class)->mid
 
 Route::post('EnvioDatos',[CargarPdfController::class,'Insertar']);
 Route::resource('listado',App\Http\Controllers\ListadoController::class)->middleware('auth');
+
+// Vistas Usuarios
+Route::get('usuarios',[UsuariosController::class,'index']);
+
 // Vista formulario
 Route::resource('/formulario', formularioController::class);
 Route::get('/formulario',[formularioController::class,'index']);

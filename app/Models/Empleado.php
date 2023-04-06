@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property $id
  * @property $Nombre
  * @property $Correo
- * @property $Contraseña
  * @property $Celular
  * @property $created_at
  * @property $updated_at
@@ -24,7 +23,6 @@ class Empleado extends Model
     static $rules = [
 		'Nombre' => 'required',
 		'Correo' => 'required',
-		'Contraseña' => 'required',
 		'Celular' => 'required',
     ];
 
@@ -35,7 +33,7 @@ class Empleado extends Model
      *
      * @var array
      */
-    protected $fillable = ['Nombre','Correo','Contraseña','Celular'];
+    protected $fillable = ['Nombre','Correo','Celular'];
 
 
 
