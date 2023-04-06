@@ -36,7 +36,7 @@ Route::post('EnvioDatos',[CargarPdfController::class,'Insertar']);
 Route::resource('listado',App\Http\Controllers\ListadoController::class)->middleware('auth');
 
 // Vistas Usuarios
-Route::get('usuarios',[UsuariosController::class,'index']);
+Route::resource('usuarios', App\Http\Controllers\UsuariosController::class)->middleware('auth');
 
 // Vista formulario
 Route::resource('/formulario', formularioController::class);

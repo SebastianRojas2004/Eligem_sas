@@ -61,6 +61,14 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="tipo_usuario" class="col-md-4 col-form-label text-md-end">{{ __('Tipo de usuario') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="tipo_usuario" type="quantity" class="form-control" name="tipo_usuario" required min = "0" max = "1">
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
