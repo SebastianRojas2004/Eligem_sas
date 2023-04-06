@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-    <!-- Coding by CodingLab | www.codinglabweb.com -->
+<!DOCTYPE html>    
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -49,23 +48,9 @@
                         </li>
 
                         <li class="nav-link">
-                            <a href="{{ route('empleados.index') }}">
-                                <i class='bx bxs-user-rectangle icon'></i>
-                                <span class="text nav-text">Empleado</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-link">
-                            <a href="{{ route('usuarios.index')}}">
-                                <i class='bx bxs-user icon'></i>
-                                <span class="text nav-text">Usuarios</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-link">
-                            <a href="{{ route('cargarPdf.index')}}">
-                                <i class='bx bxs-file-pdf icon' ></i>
-                                <span class="text nav-text">Cargar Pdf</span>
+                            <a href="{{ route('formulario.create') }}">
+                                <i class='bx bxs-food-menu icon'></i>
+                                <span class="text nav-text">Formulario</span>
                             </a>
                         </li>
                     </ul>
