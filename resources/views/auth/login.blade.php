@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Login Form Design One | Fazt</title>
+    <title>Login</title>
 
     @vite(['resources/css/login.css'])
 

@@ -1,23 +1,21 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Eligem sas') }}</title>
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css'])
+<!DOCTYPE html>    
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Scripts -->
+        @vite(['resources/css/app.css','resources/js/navbar.js'])
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
         
         <!----===== Boxicons CSS ===== -->
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
-<nav class="sidebar close">
+        
+        <!--<title>Dashboard Sidebar Menu</title>--> 
+    </head>
+    <body>
+        <nav class="sidebar close">
             <header>
                 <div class="image-text">
                     <span class="image">
@@ -36,7 +34,7 @@
             <div class="menu-bar">
                 <div class="menu">
 
-                    <li class="search-box">
+                <li class="search-box">
                         <i class='bx bx-search icon'></i>
                         <input type="text" placeholder="Search...">
                     </li>
@@ -101,55 +99,7 @@
                         <div class="toggle-switch">
                             <span class="switch"></span>
                         </div>
-                    </li>
-                    
-                </div>
-            </div>
-
-        </nav>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">                                                  
+                    </li>                    
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-    <script>
-            const body = document.querySelector('body'),
-        sidebar = body.querySelector('nav'),
-        toggle = body.querySelector(".toggle"),
-        searchBtn = body.querySelector(".search-box"),
-        modeSwitch = body.querySelector(".toggle-switch"),
-        modeText = body.querySelector(".mode-text");
-
-
-    toggle.addEventListener("click" , () =>{
-        sidebar.classList.toggle("close");
-    })
-
-    searchBtn.addEventListener("click" , () =>{
-        sidebar.classList.remove("close");
-    })
-
-    modeSwitch.addEventListener("click" , () =>{
-        body.classList.toggle("dark");
-        
-        if(body.classList.contains("dark")){
-            modeText.innerText = "Light mode";
-        }else{
-            modeText.innerText = "Dark mode";
-            
-        }
-    });
-        </script>
-</body>
-</html>

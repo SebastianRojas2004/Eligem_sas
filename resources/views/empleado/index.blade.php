@@ -6,13 +6,12 @@
 
 @section('content')
 <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <br>
-                             <div class="float-right">
-                                <a href="{{ route('empleados.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
-                                </a>
-                              </div>
+    <table class="table">        
+        <div class="float-right">
+            <a href="{{ route('empleados.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                {{ __('Create New') }}
+            </a>
+        </div>
                         </div>
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -45,7 +44,7 @@
 
                                             <td>
                                                 <form action="{{ route('empleados.destroy',$empleado->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('empleados.show',$empleado->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <!--- <a class="btn btn-sm btn-primary " href="{{ route('empleados.show',$empleado->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a> -->
                                                     <a class="btn btn-sm btn-success" href="{{ route('empleados.edit',$empleado->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')

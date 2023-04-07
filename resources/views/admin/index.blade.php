@@ -1,4 +1,4 @@
-    <!DOCTYPE html>    
+<!DOCTYPE html>    
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <!-- Scripts -->
-        @vite(['resources/css/app.css'])
+        @vite(['resources/css/app.css','resources/js/navbar.js'])
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
         
         <!----===== Boxicons CSS ===== -->
@@ -34,7 +34,7 @@
             <div class="menu-bar">
                 <div class="menu">
 
-                    <li class="search-box">
+                <li class="search-box">
                         <i class='bx bx-search icon'></i>
                         <input type="text" placeholder="Search...">
                     </li>
@@ -99,45 +99,7 @@
                         <div class="toggle-switch">
                             <span class="switch"></span>
                         </div>
-                    </li>
-                    
+                    </li>                    
                 </div>
             </div>
-
         </nav>
-
-        <section class="home">
-            <div class="text">Dashboard Sidebar</div>
-        </section>
-
-        <script>
-            const body = document.querySelector('body'),
-        sidebar = body.querySelector('nav'),
-        toggle = body.querySelector(".toggle"),
-        searchBtn = body.querySelector(".search-box"),
-        modeSwitch = body.querySelector(".toggle-switch"),
-        modeText = body.querySelector(".mode-text");
-
-
-    toggle.addEventListener("click" , () =>{
-        sidebar.classList.toggle("close");
-    })
-
-    searchBtn.addEventListener("click" , () =>{
-        sidebar.classList.remove("close");
-    })
-
-    modeSwitch.addEventListener("click" , () =>{
-        body.classList.toggle("dark");
-        
-        if(body.classList.contains("dark")){
-            modeText.innerText = "Light mode";
-        }else{
-            modeText.innerText = "Dark mode";
-            
-        }
-    });
-        </script>
-
-    </body>
-    </html>

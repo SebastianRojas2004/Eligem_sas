@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
 @section('template_title')
     Create Empleado
 @endsection
@@ -25,4 +23,3 @@
         </div>
     </section>
 </div>
-@endsection

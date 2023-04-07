@@ -33,7 +33,6 @@ Route::resource('index', App\Http\Controllers\CargarPdfController::class)->middl
 Route::resource('listado', App\Http\Controllers\CargarPdfController::class)->middleware('auth');
 
 Route::post('EnvioDatos',[CargarPdfController::class,'Insertar']);
-Route::resource('listado',App\Http\Controllers\ListadoController::class)->middleware('auth');
 
 // Vistas Usuarios
 Route::resource('usuarios', App\Http\Controllers\UsuariosController::class)->middleware('auth');

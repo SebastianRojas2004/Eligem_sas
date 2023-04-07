@@ -1,10 +1,9 @@
-@extends('layouts.app')
-
 @section('template_title')
     Update Empleado
 @endsection
 
 @section('content')
+<div class="container">
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
@@ -28,4 +27,4 @@
             </div>
         </div>
     </section>
-@endsection
+</div>

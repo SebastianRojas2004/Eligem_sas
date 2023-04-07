@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-</head>
-<body>
+@extends('home')
+
+@section('content')
+    <div class="container">
     <form action="{{ route('formulario.store') }}" method="post">
         @csrf
         <label for="">Empresa en mision en la que termino su contrato</label>
@@ -37,6 +32,4 @@
         <textarea name="opinion" id="" cols="30" rows="10"></textarea>
         <br>
         <input type="submit" value="Enviar">
-    </form>
-</body>
-</html>
+    </form>    
