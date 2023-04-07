@@ -1,3 +1,10 @@
+@extends('layouts.app')
+
+@section('template_title')
+    Create Empleado
+@endsection
+
+@section('content')
 <div class="box box-info padding-1">
     <div class="box-body">
         
