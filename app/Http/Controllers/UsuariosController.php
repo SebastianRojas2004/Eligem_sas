@@ -18,7 +18,7 @@ class UsuariosController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {        
         return view('usuarios/create');
     }
 
@@ -43,7 +43,9 @@ class UsuariosController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $usuarios = Usuario::find($id);
+
+        return view('usuarios.edit',compact('User'));
     }
 
     /**
@@ -51,14 +53,25 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        request()->validate(Usuario::$rules);
+
+        $usuario->update($request->all());
+
+        return redirect()->route('usuarios.index')
+            ->with('success', 'Usuario updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(string $id)
+
+    public function destroy($id)
     {
-        //
+        $usuario = usuario::find($id)->delete();
+
+        return redirect()->route('usuarios.index')
+            ->with('success', 'Usuario deleted successfully');
     }
 }
