@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\User;
+use App\Models\Empleado;
 
 class UsuariosController extends Controller
 {    
@@ -19,7 +20,8 @@ class UsuariosController extends Controller
      */
     public function create()
     {        
-        return view('usuarios/create');
+        $Empleado=Empleado::pluck('nombre','id');
+        return view('usuarios/create',compact('Empleado'));
     }
 
     /**
@@ -27,7 +29,12 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate(Usuario::$rules);
+
+        $usuarios = User    ::create($request->all());
+
+        return redirect()->route('usuarios.index')
+            ->with('success', 'Usuario created successfully.');
     }
 
     /**
@@ -35,7 +42,9 @@ class UsuariosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $usuarios = User::find($id);
+
+        return view('usuarios.show', compact('usuarios'));
     }
 
     /**
@@ -43,9 +52,9 @@ class UsuariosController extends Controller
      */
     public function edit(string $id)
     {
-        $usuarios = Usuario::find($id);
+        $usuarios = User::find($id);
 
-        return view('usuarios.edit',compact('User'));
+        return view('usuarios.edit',compact('usuarios'));
     }
 
     /**
@@ -53,9 +62,9 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        request()->validate(Usuario::$rules);
+        request()->validate(User::$rules);
 
-        $usuario->update($request->all());
+        $usuarios->update($request->all());
 
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuario updated successfully');
@@ -69,7 +78,7 @@ class UsuariosController extends Controller
 
     public function destroy($id)
     {
-        $usuario = usuario::find($id)->delete();
+        $usuarios = User::find($id)->delete();
 
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuario deleted successfully');

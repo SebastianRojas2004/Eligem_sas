@@ -14,6 +14,7 @@ class cargarPdf extends Model
 
     protected $fillable=[
         'nombre',
-        'documento'        
+        'documento',
+        'id_empleado'
     ];
 }

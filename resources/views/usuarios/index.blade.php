@@ -19,6 +19,7 @@
                     <th>Correo</th>                    
                     <th>Contraseña</th>                    
                     <th>Tipo de usuario</th>                    
+                    <th>Id empleado</th>  
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@
                         <td>{{ $d->email }}</td>
                         <td>{{ $d->password }}</td>     
                         <td>{{ $d->tipo_usuario }}</td>
+                        <td>{{ $d->id_empleado }}</td>
                         <td>
                             <form action="{{ route('usuarios.destroy',$d->id) }}" method="POST">
                                 <!--- <a class="btn btn-sm btn-primary " href="{{ route('empleados.show',$d->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a> -->

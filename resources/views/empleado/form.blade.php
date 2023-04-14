@@ -23,7 +23,6 @@
             {{ Form::Number('Celular', $empleado->Celular, ['class' => 'form-control' . ($errors->has('Celular') ? ' is-invalid' : ''), 'placeholder' => 'Celular']) }}
             {!! $errors->first('Celular', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">Submit</button>
