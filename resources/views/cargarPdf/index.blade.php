@@ -11,8 +11,12 @@
             <br>
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Nombre</th>
-                    <th>Documento</th>                    
+                    <th>Documento</th>
+                    <th>id empleado</th>
+                    <th>Ver documento</th>
+                    <th>Descargar documento</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,7 +25,9 @@
                         <td>{{ $d->id_doc }}</td>
                         <td>{{ $d->nombre }}</td>
                         <td>{{ $d->documento }}</td>     
+                        <td>{{ $d->id_empleado }}</td>
                         <td><a href="Archivos/{{$d->documento}}" target="blank_">Ver Documento</a></td>
+                        <td><a href="Archivos/{{$d->documento}}" download>descargar documento</a></td>
                     </tr>
                 @endforeach
             </tbody>
