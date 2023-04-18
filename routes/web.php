@@ -28,9 +28,9 @@ Auth::routes();
 Route::resource('empleados', App\Http\Controllers\EmpleadoController::class)->middleware('auth');
 
 // Vistas PDF
-Route::resource('cargarPdf', App\Http\Controllers\CargarPdfController::class)->middleware('auth');
-
+Route::resource('cargarPdf', App\Http\Controllers\CargarPdfController::class)->middleware('auth');  
 Route::post('EnvioDatos',[CargarPdfController::class,'Insertar']);
+
 
 // Vistas Usuarios
 Route::resource('usuarios', App\Http\Controllers\UsuariosController::class)->middleware('auth');

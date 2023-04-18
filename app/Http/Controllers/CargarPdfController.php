@@ -25,6 +25,7 @@ class CargarPdfController extends Controller
                 $reg=new cargarPdf;
                 $reg->nombre=$request->get('nombre');
                 $reg->documento=$request->get('documento');
+                $reg->id_empleado=$request->get('id_empleado');
                     if($request->hasFile('pdf')){
                         $archivo=$request->file('pdf');            
                         $archivo->move(public_path().'/Archivos/',$archivo->getClientOriginalName());
@@ -32,6 +33,7 @@ class CargarPdfController extends Controller
                     }
                 $reg->save();
             DB::commit();
+            return view('cargarPdf/index');
        } catch(Exception ){
             DB::rollBack();
        }              

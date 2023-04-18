@@ -6,14 +6,14 @@
         @csrf
         <label for="">Empresa en mision en la que termino su contrato</label>
         <br>
-        <input type="radio" name="empresaContrato" id="Alborada" value="Alborada">Alborada<br>
-        <input type="radio" name="empresaContrato" id="Agricola cardenal (Facatativa)" value="Agricola cardenal (Facatativa)">Agricola cardenal (Facatativa)<br>
-        <input type="radio" name="empresaContrato" id="Agricola cardenal (Rosal)" value="Agricola cardenal (Rosal)">Agricola cardenal (Rosal)<br>
-        <input type="radio" name="empresaContrato" id="Inverpalmas" value="Inverpalmas">Inverpalmas<br>
-        <input type="radio" name="empresaContrato" id="Flores colon" value="Flores colon">Flores colon<br>
-        <input type="radio" name="empresaContrato" id="Flores del rio" value="Flores del rio">Flores del rio<br>
-        <input type="radio" name="empresaContrato" id="Flores Funza" value="Flores Funza">Flores Funza<br>
-        <input type="radio" name="empresaContrato" id="Flexport de Colombia" value="Flexport de Colombia">Flexport de Colombia<br>
+        <input type="radio" name="empresaContrato" value="Alborada">Alborada<br>
+        <input type="radio" name="empresaContrato" value="Agricola cardenal (Facatativa)">Agricola cardenal (Facatativa)<br>
+        <input type="radio" name="empresaContrato" value="Agricola cardenal (Rosal)">Agricola cardenal (Rosal)<br>
+        <input type="radio" name="empresaContrato" value="Inverpalmas">Inverpalmas<br>
+        <input type="radio" name="empresaContrato" value="Flores colon">Flores colon<br>
+        <input type="radio" name="empresaContrato" value="Flores del rio">Flores del rio<br>
+        <input type="radio" name="empresaContrato" value="Flores Funza">Flores Funza<br>
+        <input type="radio" name="empresaContrato" value="Flexport de Colombia">Flexport de Colombia<br>
         Otro <input type="text" name="empresaContrato" id=""><br>
         <br>
 

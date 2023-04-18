@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,6 +29,6 @@ class HomeController extends Controller
 
     public function indexAdmin()
     {
-        return view('admin/index');
+        return view('admin/index');        
     }
 }
