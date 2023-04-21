@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Formulario extends Model
 {
-    use HasFactory;
+    	protected $fillable = [
+			'empresaContrato',
+			'motivo',
+			'opinion',
+			'id_empleado'
+		];
 }

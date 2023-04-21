@@ -307,3 +307,7 @@
  body.dark .home .text{
      color: var(--text-color);
  }
+
+ .form-formulario{
+    padding: 35px;
+ }

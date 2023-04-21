@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Formulario;
+use Illuminate\Support\Facades\Auth;
 
 class formularioController extends Controller
 {
@@ -27,15 +28,27 @@ class formularioController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //return view("formulario/index");
-        $formularios = new Formulario;
+    {    
+        $idUsu = auth()->user()->id_empleado;
+        $formularios = Formulario::create([
+            'empresaContrato' => $request->input('empresaContrato'),
+            'motivo' => $request->input('motivo'),
+            'opinion' => $request->input('opinion'),
+            'id_empleado' => $idUsu,
+        ]);
 
+        $formularios->save();
+        return view('cargarPdf/indexEmp');
+        /*
         $formularios->empresaContrato=$request->empresaContrato;
         $formularios->motivo=$request->motivo;
         $formularios->opinion=$request->opinion;
+        $formularios->idUsu =$request->id_empleado;
 
         $formularios->save();
+        return view('cargarPdf/indexEmp');
+
+        */
     }
 
     /**
