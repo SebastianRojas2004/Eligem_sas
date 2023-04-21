@@ -53,6 +53,12 @@
                                 <span class="text nav-text">Formulario</span>
                             </a>
                         </li>
+                        <li class="nav-link">
+                            <a href="{{ route('cargarPdf.index')}}">
+                                <i class='bx bxs-file-pdf icon' ></i>
+                                <span class="text nav-text">Cargar Pdf</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
 

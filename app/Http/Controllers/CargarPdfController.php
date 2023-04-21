@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Models\cargarPdf;
 
@@ -10,8 +11,22 @@ class CargarPdfController extends Controller
 {
     public function index()
     {
-        $query=DB::table('ArchivoPdf')->get();
-        return view('cargarPdf.index',['datos'=>$query]);
+        $idTipoUsu = Auth::user()->tipo_usuario;        
+        if($idTipoUsu == 0){
+            $idUsu = Auth::user()->id_empleado;        
+        
+            $query = DB::table('archivopdf')
+                ->join('empleados','archivopdf.id_empleado','=','empleados.id')
+                ->join('users','users.id','=','empleados.id')
+                ->select('archivopdf.id_doc','archivopdf.nombre','archivopdf.documento','archivopdf.id_empleado')
+                ->where('archivopdf.id_empleado','=',$idUsu)
+                ->get();
+            
+            return view('cargarPdf.index',['datos'=>$query]);
+        }else{
+            $query=DB::table('ArchivoPdf')->get();
+            return view('cargarPdf.index',['datos'=>$query]);
+        }
     }
 
     public function listado()

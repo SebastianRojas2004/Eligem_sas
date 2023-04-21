@@ -31,7 +31,7 @@ class UsuariosController extends Controller
     {
         request()->validate(Usuario::$rules);
 
-        $usuarios = User    ::create($request->all());
+        $usuarios = User::create($request->all());
 
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuario created successfully.');
