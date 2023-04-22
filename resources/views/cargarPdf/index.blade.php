@@ -28,6 +28,13 @@
                         <td>{{ $d->id_empleado }}</td>
                         <td><a href="Archivos/{{$d->documento}}" class="btn btn-info" target="blank_">Ver Documento</a></td>
                         <td><a href="Archivos/{{$d->documento}}" class="btn btn-success" download>descargar documento</a></td>
+                        <td>
+                            <form action="{{ route('cargarPdf.destroy',$d->id_doc) }}" method="POST">                                                                
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

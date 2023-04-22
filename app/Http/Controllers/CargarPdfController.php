@@ -12,9 +12,15 @@ class CargarPdfController extends Controller
     public function index()
     {
         $idTipoUsu = Auth::user()->tipo_usuario;        
-        if($idTipoUsu == 0){
-            $idUsu = Auth::user()->id_empleado;        
-        
+        if($idTipoUsu == 0){                    
+            $userId = Auth::id();
+            $user = User::find($userId);
+            $idUsu = $user->id_empleado;
+            
+            session()->put('user_' . $userId, true);
+            session()->put('user_id_empleado' . $userId, $idUsu);
+            //$idUsu = Auth::user()->id_empleado;        
+         
             $query = DB::table('archivopdf')
                 ->join('empleados','archivopdf.id_empleado','=','empleados.id')
                 ->join('users','users.id','=','empleados.id')
@@ -52,5 +58,19 @@ class CargarPdfController extends Controller
        } catch(Exception ){
             DB::rollBack();
        }              
+    }
+
+    public function show(string $id_doc)
+    {
+        $query=DB::table('ArchivoPdf')->get();
+        return view('cargarPdf/index',['datos'=>$query]);
+    }
+
+    public function destroy($id_doc)
+    {
+        $d = cargarPdf::find($id_doc)->delete();
+
+        return redirect()->route('CargarPdf.index')
+            ->with('success', 'CargarPdf deleted successfully');
     }
 }

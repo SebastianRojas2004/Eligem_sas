@@ -36,7 +36,7 @@
                                 <tbody>
                                     @foreach ($empleados as $empleado)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td>{{ $empleado->id }}</td>
                                             
 											<td>{{ $empleado->Nombre }}</td>
 											<td>{{ $empleado->Correo }}</td>											

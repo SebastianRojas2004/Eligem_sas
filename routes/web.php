@@ -30,10 +30,12 @@ Route::resource('empleados', App\Http\Controllers\EmpleadoController::class)->mi
 // Vistas PDF
 Route::resource('cargarPdf', App\Http\Controllers\CargarPdfController::class)->middleware('auth');  
 Route::post('EnvioDatos',[CargarPdfController::class,'Insertar']);
+Route::post('cargarPdf',[CargarPdfController::class,'listado']);
 
 
 // Vistas Usuarios
 Route::resource('usuarios', App\Http\Controllers\UsuariosController::class)->middleware('auth');
+Route::get('Usuario',[UsuariosController::class,'index']);
 
 // Vista formulario
 Route::resource('/formulario', formularioController::class);

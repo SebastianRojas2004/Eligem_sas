@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Formulario;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class formularioController extends Controller
 {
@@ -35,20 +36,17 @@ class formularioController extends Controller
             'motivo' => $request->input('motivo'),
             'opinion' => $request->input('opinion'),
             'id_empleado' => $idUsu,
-        ]);
+        ]);    
 
-        $formularios->save();
-        return view('cargarPdf/indexEmp');
-        /*
-        $formularios->empresaContrato=$request->empresaContrato;
-        $formularios->motivo=$request->motivo;
-        $formularios->opinion=$request->opinion;
-        $formularios->idUsu =$request->id_empleado;
-
-        $formularios->save();
-        return view('cargarPdf/indexEmp');
-
-        */
+        $idUsu = Auth::user()->id_empleado;        
+        
+            $query = DB::table('archivopdf')
+                ->join('empleados','archivopdf.id_empleado','=','empleados.id')
+                ->join('users','users.id_empleado','=','empleados.id')
+                ->select('archivopdf.id_doc','archivopdf.nombre','archivopdf.documento','archivopdf.id_empleado')
+                ->where('archivopdf.id_empleado','=',$idUsu)
+                ->get();
+        return view('cargarPdf.indexEmp',['datos'=>$query]);        
     }
 
     /**

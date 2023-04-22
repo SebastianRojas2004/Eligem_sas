@@ -42,9 +42,8 @@ class UsuariosController extends Controller
      */
     public function show(string $id)
     {
-        $usuarios = User::find($id);
-
-        return view('usuarios.show', compact('usuarios'));
+        $query=DB::table('users')->get();
+        return view('usuarios.index',['datos'=>$query]);
     }
 
     /**
@@ -60,11 +59,11 @@ class UsuariosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $usuarios)
+    public function update(Request $request,User $id)
     {
-        request()->validate(User::$rules);
-
-        $usuarios->update($request->all());
+       $usuarios = User::find($id);
+       $usuarios->fill($request->all());
+       $usuarios->save();
 
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuario updated successfully');

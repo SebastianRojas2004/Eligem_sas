@@ -1,9 +1,4 @@
-$idTipoUsu = Auth::user()->tipo_usuario;        
-        if($idTipoUsu == 0){
-            @extends('layouts.app')
-        }else{
-            @extends('home.php')
-        }
+@extends('layouts.app')
 
 @section('template_title')
     Create Usuarios
@@ -20,6 +15,7 @@ $idTipoUsu = Auth::user()->tipo_usuario;
             <br>
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Nombre</th>
                     <th>Correo</th>                    
                     <th>Contraseña</th>                    
@@ -30,6 +26,7 @@ $idTipoUsu = Auth::user()->tipo_usuario;
             <tbody>
                 @foreach ($datos as $d)
                     <tr>
+                        <td>{{ $d->id }}</td>
                         <td>{{ $d->name }}</td>
                         <td>{{ $d->email }}</td>
                         <td>{{ $d->password }}</td>     

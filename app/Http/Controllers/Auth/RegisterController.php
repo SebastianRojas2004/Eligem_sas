@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'tipo_usuario' => ['required', 'string', 'min:0', 'max:1'],
             'id_empleado' => ['required', 'string', 'max:255'],
-        ]);
+        ]);        
     }
 
     /**
@@ -72,8 +72,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),            
             'tipo_usuario' => $data['tipo_usuario'],
             'id_empleado' => $data['id_empleado'],
-        ]);        
-        return redirect()->route('usuarios.index')
-            ->with('success', 'Usuario created successfully.');
+        ]);                
+        
+        return redirect()->route('Usuario')
+        ->with('success', 'Usuario created successfully.');
     }
 }
