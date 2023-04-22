@@ -22,10 +22,10 @@ class CargarPdfController extends Controller
                 ->where('archivopdf.id_empleado','=',$idUsu)
                 ->get();
             
-            return view('cargarPdf.index',['datos'=>$query]);
+            return view('cargarPdf/indexEmp',['datos'=>$query]);
         }else{
             $query=DB::table('ArchivoPdf')->get();
-            return view('cargarPdf.index',['datos'=>$query]);
+            return view('cargarPdf/index',['datos'=>$query]);
         }
     }
 

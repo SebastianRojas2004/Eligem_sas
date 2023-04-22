@@ -72,7 +72,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),            
             'tipo_usuario' => $data['tipo_usuario'],
             'id_empleado' => $data['id_empleado'],
-        ]);
-        return view('usuarios.index');
+        ]);        
+        return redirect()->route('usuarios.index')
+            ->with('success', 'Usuario created successfully.');
     }
 }

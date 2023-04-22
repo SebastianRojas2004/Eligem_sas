@@ -26,8 +26,8 @@
                         <td>{{ $d->nombre }}</td>
                         <td>{{ $d->documento }}</td>     
                         <td>{{ $d->id_empleado }}</td>
-                        <td><a href="Archivos/{{$d->documento}}" target="blank_">Ver Documento</a></td>
-                        <td><a href="Archivos/{{$d->documento}}" download>descargar documento</a></td>
+                        <td><a href="Archivos/{{$d->documento}}" class="btn btn-info" target="blank_">Ver Documento</a></td>
+                        <td><a href="Archivos/{{$d->documento}}" class="btn btn-success" download>descargar documento</a></td>
                     </tr>
                 @endforeach
             </tbody>

@@ -1,4 +1,9 @@
-@extends('layouts.app')
+$idTipoUsu = Auth::user()->tipo_usuario;        
+        if($idTipoUsu == 0){
+            @extends('layouts.app')
+        }else{
+            @extends('home.php')
+        }
 
 @section('template_title')
     Create Usuarios
