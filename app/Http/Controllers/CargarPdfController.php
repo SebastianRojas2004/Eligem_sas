@@ -54,7 +54,8 @@ class CargarPdfController extends Controller
                     }
                 $reg->save();
             DB::commit();
-            return view('cargarPdf/index');
+            $query=DB::table('archivopdf')->get();
+            return view('cargarPdf.index',['datos'=>$query]);
        } catch(Exception ){
             DB::rollBack();
        }              

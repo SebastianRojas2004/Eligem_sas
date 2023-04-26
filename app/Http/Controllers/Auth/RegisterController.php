@@ -74,7 +74,7 @@ class RegisterController extends Controller
             'id_empleado' => $data['id_empleado'],
         ]);                
         
-        return redirect()->route('Usuario')
+        return redirect()->route('usuarios.index')
         ->with('success', 'Usuario created successfully.');
     }
 }

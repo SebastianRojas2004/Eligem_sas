@@ -30,7 +30,7 @@ Route::resource('empleados', App\Http\Controllers\EmpleadoController::class)->mi
 // Vistas PDF
 Route::resource('cargarPdf', App\Http\Controllers\CargarPdfController::class)->middleware('auth');  
 Route::post('EnvioDatos',[CargarPdfController::class,'Insertar']);
-Route::post('cargarPdf',[CargarPdfController::class,'listado']);
+Route::get('/cargar-pdf', [CargarPdfController::class, 'listado'])->name('cargarPdf.listado');
 
 
 // Vistas Usuarios
