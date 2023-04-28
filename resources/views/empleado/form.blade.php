@@ -1,10 +1,3 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Create Empleado
-@endsection
-
-@section('content')
 <div class="box box-info padding-1">
     <div class="box-body">
         
@@ -24,7 +17,8 @@
             {!! $errors->first('Celular', '<div class="invalid-feedback">:message</div>') !!}
         </div>
     </div>
+    <br>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </div>

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class cargarPdf extends Model
 {
     protected $table='archivopdf';
-    protected $primarKey = 'id_doc';
+    protected $primaryKey = 'id_doc';
 
     public $timestamps=false;
 

@@ -71,7 +71,7 @@ class CargarPdfController extends Controller
     {
         $d = cargarPdf::find($id_doc)->delete();
 
-        return redirect()->route('CargarPdf.index')
+        return redirect()->route('cargarPdf.index')
             ->with('success', 'CargarPdf deleted successfully');
     }
 }
