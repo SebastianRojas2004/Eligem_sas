@@ -44,7 +44,7 @@ Route::get('/formulario',[formularioController::class,'index']);
 Route::get('/create',[formularioController::class,'create']);
 
 // Vista inicio Empleados
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Vista inicio Administradores
 Route::get('admin', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('admin');
