@@ -36,6 +36,7 @@ Route::get('/cargar-pdf', [CargarPdfController::class, 'listado'])->name('cargar
 // Vistas Usuarios
 Route::resource('usuarios', App\Http\Controllers\UsuariosController::class)->middleware('auth');
 Route::get('Usuario',[UsuariosController::class,'index']);
+Route::patch('usuarios/{id}',[UsuariosController::class,'update'])->name('id.edit');
 
 // Vista formulario
 Route::resource('/formulario', formularioController::class);

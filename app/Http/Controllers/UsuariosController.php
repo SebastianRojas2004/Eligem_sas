@@ -56,18 +56,40 @@ class UsuariosController extends Controller
         return view('usuarios.edit',compact('usuarios'));
     }
 
-    /**
+   /**
      * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  User $usuarios
+     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,User $id)
+    public function update(Request $request, $id)
     {
-       $usuarios = User::find($id);
-       $usuarios->fill($request->all());
-       $usuarios->save();
+        $user = User::find($id);
+    
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'required',
+            'tipo_usuario' => 'required',
+            'id_empleado' => 'required',
+        ]);
+    
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        $user->tipo_usuario = $request->input('tipo_usuario');
+        $user->id_empleado = $request->input('id_empleado');
+        $user->save();
+    
+        return redirect()->route('usuarios.index')->with('success', 'User updated successfully');
+    }
+        /*
+        $usuarios->update($request->all());
 
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuario updated successfully');
-    }
+        */    
 
     /**
      * @param int $id

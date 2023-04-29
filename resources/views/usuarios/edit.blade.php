@@ -22,7 +22,7 @@
     </div>
       <ul class="nav-links">
       <li>
-          <a href="#" class="active">
+          <a href="admin" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Home</span>
           </a>
@@ -79,37 +79,34 @@
 
                 @includeif('partials.errors')
                     <div class="card-body">
-                        <form method="PUT" action="{{ route('usuarios.update', $usuarios) }}"  role="form" enctype="multipart/form-data">                        
+                        <form method="POST" action="{{ route('usuarios.update', $usuarios->id) }}"  role="form" enctype="multipart/form-data">                        
+                            @csrf @method('PATCH')
                             <div class="box box-info padding-1">
                                 <div class="box-body">
                                     <div class="form-group">
-                                    {{ Form::label('Nombre') }}
-                                    {{ Form::text('name', $usuarios->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
-                                    {!! $errors->first('Nombre', '<div class="invalid-feedback">:message</div>') !!}
+                                        <label for="name">Nombre</label>
+                                        <input type="text" class="form-control" name="name" value="{{$usuarios->name}}">
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::label('Correo') }}
-                                        {{ Form::text('Correo', $usuarios->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Correo']) }}
-                                        {!! $errors->first('Correo', '<div class="invalid-feedback">:message</div>') !!}
+                                        <label for="email">Correo</label>
+                                        <input type="text" class="form-control" name="email" value="{{$usuarios->email}}">
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::label('Contraseña') }}
-                                        {{ Form::text('Contraseña', $usuarios->password, ['class' => 'form-control' . ($errors->has('password') ? ' is-invalid' : ''), 'placeholder' => 'Contraseña']) }}
-                                        {!! $errors->first('Contraseña', '<div class="invalid-feedback">:message</div>') !!}
+                                        <label for="password">Contraseña</label>
+                                        <input type="password" class="form-control" name="password" value="{{$usuarios->password}}">
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::label('Tipo de usuario') }}
-                                        {{ Form::Number('Contraseña', $usuarios->tipo_usuario, ['class' => 'form-control' . ($errors->has('tipo_usuario') ? ' is-invalid' : ''), 'placeholder' => 'Tipo de usuario']) }}
-                                        {!! $errors->first('Tipo de usuario', '<div class="invalid-feedback">:message</div>') !!}
+                                        <label for="tipo_usuario">Tipo usuario</label>
+                                        <input type="text" class="form-control" name="tipo_usuario" value="{{$usuarios->tipo_usuario}}">
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::label('Id empleado') }}
-                                        {{ Form::Number('Id empleado', $usuarios->id_empleado, ['class' => 'form-control' . ($errors->has('id_empleado') ? ' is-invalid' : ''), 'placeholder' => 'Id empleado']) }}
-                                        {!! $errors->first('Id empleado', '<div class="invalid-feedback">:message</div>') !!}
+                                        <label for="id_empleado">id empleado</label>
+                                        <input type="text" class="form-control" name="id_empleado" value="{{$usuarios->id_empleado}}">
                                     </div>
                                 </div>
+                                <br>
                                 <div class="box-footer mt20">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Editar</button>
                                 </div>
                             </div>
                         </form>
