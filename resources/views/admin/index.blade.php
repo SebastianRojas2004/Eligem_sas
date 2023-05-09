@@ -71,4 +71,14 @@
     <div class="sales-details">
             <ul class="details">
         <div class="recent-sales box">
-            <br><br><br><br> 
+            <br><br><br><br><br>
+          <div class="container">
+              <h4>Descargar datos de respuesta a formulario</h4>
+              <br>
+              <label for="fecha">fecha inicio:</label>
+              <input type="date" id="fecha_inicio" name="fecha_inicio">
+              &nbsp;              
+              <label for="fecha">hasta:&nbsp;</label>
+              <input type="date" id="fecha_final" name="fecha_final">&nbsp;
+              <input type="button" class="btn btn-primary" value="Generar Excel">
+            </div>  
