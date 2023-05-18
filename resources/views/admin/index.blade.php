@@ -71,4 +71,25 @@
     <div class="sales-details">
             <ul class="details">
         <div class="recent-sales box">
-            <br><br><br><br> 
+            <br><br><br><br>
+            <form action="{{ route('excel')}}">
+            <div class="container">
+    <h2>Seleccionar fecha del reporte</h2>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="fecha1">desde:</label>
+          <input type="date" class="form-control" id="fechaInicio">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="fecha2">hasta:</label>
+          <input type="date" class="form-control" id="fechaFin">
+        </div>
+      </div>
+            </div>
+              </div>
+              <br>
+              <input type="submit" class="btn btn-primary" value="Generar Excel">
+            </form>
