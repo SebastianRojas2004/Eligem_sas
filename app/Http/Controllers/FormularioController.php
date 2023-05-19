@@ -7,6 +7,7 @@ use App\Models\Formulario;
 use Illuminate\Support\Facades\Auth;
 use App\Exports\FormularioExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Carbon\Carbon;
 use DB;
 
 class formularioController extends Controller
@@ -55,12 +56,15 @@ class formularioController extends Controller
     {
         $fechaInicio = $request->input('fechaInicio');
         $fechaFin = $request->input('fechaFin');
-
-        
-        $datos = Formulario::whereBetween('created_at', [$fechaInicio, $fechaFin])->get();
-
-        return Excel::download(new FormularioExport($datos), 'formulario.xlsx');
-        //return Excel::download(new FormularioExport, 'formulario.xlsx');
+    
+        $fechaInicio = Carbon::parse($fechaInicio)->startOfDay();
+        $fechaFin = Carbon::parse($fechaFin)->endOfDay();
+    
+        $datos = Formulario::where('created_at', '>=', $fechaInicio)
+                           ->where('created_at', '<=', $fechaFin)
+                           ->get();
+    
+        return \Maatwebsite\Excel\Facades\Excel::download(new FormularioExport($datos), 'formulario.xlsx');
     }
 
     /**

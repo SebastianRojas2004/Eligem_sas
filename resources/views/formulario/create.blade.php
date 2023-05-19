@@ -69,41 +69,42 @@
         <form action="{{ route('formulario.store') }}" method="post" class="form-formulario">
         @csrf
         <label class="form-label" for="">Empresa en mision en la que termino su contrato</label>
-        <br>
+        <br>        
         <select name="empresaContrato" class="form-control" id="miSelect" onchange="mostrarInput()">
-            <option value="Alborada">Alborada</option>
-            <option value="Agricola cardenal (Facatativa)">Agricola cardenal (Facatativa)</option>
-            <option value="Agricola cardenal (Rosal)">Agricola cardenal (Rosal)</option>
-            <option value="Inverpalmas">Inverpalmas</option>
-            <option value="Flores colon">Flores colon</option>
-            <option value="Flores del rio">Flores del rio</option>
-            <option value="Flores Funza">Flores Funza</option>
-            <option value="Flexport de Colombia">Flexport de Colombia</option>
-            <option value="otro">Otra</option>
-        </select>
-        <br>
-          <div id="inputOpcion2" style="display:none;">
-            <label for="textoOpcion2">Ingrese la empresa:</label>
-            <input type="text" id="textoOpcion2" name="empresaContrato" class="form-control">
-          </div>
-        <br>
-        <label class="form-label" for="">¿Cual de los siguiente motivos se ajusta mas a la terminacion de su contrato?</label>
-        <br>
-        <select name="motivo" class="form-control" id="miSelect1" onchange="mostrarInput()">
-          <option value="Terminacion de contrato">Terminacion de contrato</option>
-          <option value="Retiro voluntario">Retiro voluntario</option>
-          <option value="Una mejor opcion laboral">Una mejor opcion laboral</option>
-          <option value="Viaje">Viaje</option>
-          <option value="Motivos familiares">Motivos familiares</option>
-          <option value="otro">Otra</option>
-        </select>                
-        <br>
-        <div id="inputOpcion3" style="display:none;">
-            <label for="textoOpcion2">Ingrese el motivo:</label>
-            <input type="text" id="textoOpcion2" name="motivo" class="form-control">
-        </div>
-        <br>
-        <label class="form-label" for="">Nos gustaria saber tu opinion de trabajar con nosotros(cuentanos aqui)</label>
+  <option value="">Seleccione una opción</option>
+  <option value="Alborada">Alborada</option>
+  <option value="Agricola cardenal (Facatativa)">Agricola cardenal (Facatativa)</option>
+  <option value="Agricola cardenal (Rosal)">Agricola cardenal (Rosal)</option>
+  <option value="Inverpalmas">Inverpalmas</option>
+  <option value="Flores colon">Flores colon</option>
+  <option value="Flores del rio">Flores del rio</option>
+  <option value="Flores Funza">Flores Funza</option>
+  <option value="Flexport de Colombia">Flexport de Colombia</option>
+  <option value="otro">Otra</option>
+</select>
+<br>
+<div id="inputOpcion2" style="display:none;">
+  <label for="textoOpcion2">Ingrese la empresa:</label>
+  <input type="text" id="textoOpcion2" name="textoOpcion2" class="form-control">
+</div>
+<br>
+<label class="form-label" for="">¿Cuál de los siguientes motivos se ajusta más a la terminación de su contrato?</label>
+<br>
+<select name="motivo" class="form-control" id="miSelect1" onchange="mostrarInput()">
+  <option value="">Seleccione una opción</option>
+  <option value="Terminacion de contrato">Terminación de contrato</option>
+  <option value="Retiro voluntario">Retiro voluntario</option>
+  <option value="Una mejor opción laboral">Una mejor opción laboral</option>
+  <option value="Viaje">Viaje</option>
+  <option value="Motivos familiares">Motivos familiares</option>
+  <option value="otro">Otra</option>
+</select>
+<br>
+<div id="inputOpcion3" style="display:none;">
+  <label for="textoOpcion3">Ingrese el motivo:</label>
+  <input type="text" id="textoOpcion3" name="textoOpcion3" class="form-control">
+</div>
+<br>    <label class="form-label" for="">Nos gustaria saber tu opinion de trabajar con nosotros(cuentanos aqui)</label>
         <br>
         <textarea class="form-control" name="opinion" id="" cols="30" rows="10"></textarea>
         <br>
