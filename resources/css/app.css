@@ -437,3 +437,28 @@
      width: calc(100% - 60px);
    }
  }
+ label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="date"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 8px;
+  width: 25%;
+}
+
+/* Estilos para el icono de calendario */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: #fff;
+  background-image: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-calendar-512.png");
+  background-size: 20px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  height: 20px;
+  opacity: 0.8;
+  width: 20px;
+}
