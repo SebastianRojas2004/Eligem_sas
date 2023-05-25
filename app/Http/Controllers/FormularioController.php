@@ -51,17 +51,13 @@ class formularioController extends Controller
         return view('cargarPdf.indexEmp',['datos'=>$query]);        
     }
 
-    public function exportExcel(Request $request)
-    {
-        $fechaInicio = $request->input('fechaInicio');
-        $fechaFin = $request->input('fechaFin');
+public function exportarTablaEntreFechas(Request $request)
+{
+    $fechaInicio = $request->input('fecha_inicio');
+    $fechaFin = $request->input('fecha_fin');
 
-        
-        $datos = Formulario::whereBetween('created_at', [$fechaInicio, $fechaFin])->get();
-
-        return Excel::download(new FormularioExport($datos), 'formulario.xlsx');
-        //return Excel::download(new FormularioExport, 'formulario.xlsx');
-    }
+    return Excel::download(new FormularioExport($fechaInicio, $fechaFin), 'formulario.xlsx');
+}
 
     /**
      * Update the specified resource in storage.

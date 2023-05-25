@@ -44,7 +44,7 @@ Route::get('/formulario',[formularioController::class,'index']);
 Route::get('/create',[formularioController::class,'create']);
 
 // Vista Excel
-Route::get('/excel',[formularioController::class,'exportExcel'])->name('excel');
+Route::post('/exportar-tabla',[formularioController::class,'exportarTablaEntreFechas']);
 
 // Vista inicio Empleados
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

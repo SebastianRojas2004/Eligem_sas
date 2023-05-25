@@ -72,24 +72,13 @@
             <ul class="details">
         <div class="recent-sales box">
             <br><br><br><br>
-            <form action="{{ route('excel')}}">
-            <div class="container">
-    <h2>Seleccionar fecha del reporte</h2>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="fecha1">desde:</label>
-          <input type="date" class="form-control" id="fechaInicio">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="fecha2">hasta:</label>
-          <input type="date" class="form-control" id="fechaFin">
-        </div>
-      </div>
-            </div>
-              </div>
-              <br>
-              <input type="submit" class="btn btn-primary" value="Generar Excel">
-            </form>
+            <form method="POST" action="{{ url('/exportar-tabla') }}">
+        @csrf
+        <label for="fecha_inicio">Fecha de inicio:</label>
+        <input type="date" id="fecha_inicio" name="fecha_inicio">
+
+        <label for="fecha_fin">Fecha de fin:</label>
+        <input type="date" id="fecha_fin" name="fecha_fin">
+
+        <button type="submit">Exportar</button>
+    </form>

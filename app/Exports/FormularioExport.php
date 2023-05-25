@@ -1,17 +1,27 @@
 <?php
-
 namespace App\Exports;
 
-use App\Models\Formulario;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\Exportable;
+use Illuminate\Support\Facades\DB;
 
-class FormularioExport implements FromCollection
+class FormularioExport implements FromQuery
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    use Exportable;
+
+    protected $fechaInicio;
+    protected $fechaFin;
+
+    public function __construct($fechaInicio, $fechaFin)
     {
-        return Formulario::all();
+        $this->fechaInicio = $fechaInicio;
+        $this->fechaFin = $fechaFin;
+    }
+
+    public function query()
+    {
+        return DB::table('formularios')
+            ->whereBetween('created_at', [$this->fechaInicio, $this->fechaFin])
+            ->orderBy('created_at', 'asc');
     }
 }
