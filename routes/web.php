@@ -17,8 +17,14 @@ use App\Http\Controllers\Auth\LoginController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+// Vista Login
+Route::get('/login', function () {
     return view('auth.login');
 });
 
@@ -39,15 +45,15 @@ Route::get('Usuario',[UsuariosController::class,'index']);
 Route::patch('usuarios/{id}',[UsuariosController::class,'update'])->name('id.edit');
 
 // Vista formulario
-Route::resource('/formulario', formularioController::class);
+Route::resource('/formulario', formularioController::class)->middleware('auth');
 Route::get('/formulario',[formularioController::class,'index']);
 Route::get('/create',[formularioController::class,'create']);
 
 // Vista Excel
-Route::post('/exportar-tabla',[formularioController::class,'exportarTablaEntreFechas']);
+Route::post('/exportar-tabla',[formularioController::class,'exportarTablaEntreFechas'])->middleware('auth');
 
 // Vista inicio Empleados
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Vista inicio Administradores
-Route::get('admin', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('admin');
+Route::get('admin', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('admin')->middleware('auth');
