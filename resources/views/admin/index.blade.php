@@ -45,21 +45,19 @@
               <span class="links_name">Cargar Pdf</span>
           </a>
         </li>             
-        <li class="log_out">                
-                <a id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    <i class='bx bx-log-out'> {{ Auth::user()->name }}</i>                
-                </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a href=" {{ route('logout') }}"
-                    onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
-        </li>              
+        <li class="log_out">
+    @guest
+        <a href="{{ route('login') }}">{{ __('Login') }}</a>
+    @else
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"class="links_name" class="bx bx-log-out" style="color: white;">
+            {{ Auth::user()->name }} ({{ __('Cerrar sesion') }})
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    @endguest
+</li>
+
       </ul>
   </div>  
   <section class="home-section">
@@ -71,52 +69,17 @@
     <div class="sales-details">
             <ul class="details">
         <div class="recent-sales box">
-<<<<<<< HEAD
             <br><br><br><br>
-<<<<<<< HEAD
             <form method="POST" action="{{ url('/exportar-tabla') }}">
+            <div class="container">
+        <h2>Seleccionar fecha del reporte</h2>
         @csrf
         <label for="fecha_inicio">Fecha de inicio:</label>
-        <input type="date" id="fecha_inicio" name="fecha_inicio">
+        <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio">
 
         <label for="fecha_fin">Fecha de fin:</label>
-        <input type="date" id="fecha_fin" name="fecha_fin">
-
-        <button type="submit">Exportar</button>
+        <input type="date" id="fecha_fin"  class="form-control" name="fecha_fin">
+        <br>
+        <button type="submit" class="btn btn-primary">Exportar</button>
+        </div>
     </form>
-=======
-            <form action="{{ route('excel')}}">
-            <div class="container">
-    <h2>Seleccionar fecha del reporte</h2>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="fecha1">desde:</label>
-          <input type="date" class="form-control" id="fechaInicio">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="fecha2">hasta:</label>
-          <input type="date" class="form-control" id="fechaFin">
-        </div>
-      </div>
-            </div>
-              </div>
-              <br>
-              <input type="submit" class="btn btn-primary" value="Generar Excel">
-            </form>
-=======
-            <br><br><br><br><br>
-          <div class="container">
-              <h4>Descargar datos de respuesta a formulario</h4>
-              <br>
-              <label for="fecha">fecha inicio:</label>
-              <input type="date" id="fecha_inicio" name="fecha_inicio">
-              &nbsp;              
-              <label for="fecha">hasta:&nbsp;</label>
-              <input type="date" id="fecha_final" name="fecha_final">&nbsp;
-              <input type="button" class="btn btn-primary" value="Generar Excel">
-            </div>  
->>>>>>> ba2e97b82cdf30df5aa54921dcd5fcf6234abac9
->>>>>>> 4b92be8421724e2fdf839cfd252704bb343f1800

@@ -33,21 +33,18 @@
               <span class="links_name">Formulario</span>
           </a>
       </li>    
-        <li class="log_out">                
-                <a id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    <i class='bx bx-log-out'> {{ Auth::user()->name }}</i>                
-                </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a href=" {{ route('logout') }}"
-                    onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
-        </li>              
+      <li class="log_out">
+    @guest
+        <a href="{{ route('login') }}">{{ __('Login') }}</a>
+    @else
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"class="links_name" class="bx bx-log-out" style="color: white;">
+            {{ Auth::user()->name }} ({{ __('Cerrar sesion') }})
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    @endguest
+</li>
       </ul>
   </div>  
   <section class="home-section">
@@ -59,7 +56,7 @@
     <div class="sales-details">
             <ul class="details">
         <div class="recent-sales box">
-            <br><br><br><br>            
+            <br><br><br><br>              
           <div class="container">          
   <div class="sales-boxes">
         <div class="recent-sales box">
